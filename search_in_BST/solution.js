@@ -36,17 +36,35 @@ var searchBST = function(root, val) {
 // Optimized solution for BST's
 
 var searchBST = function(root, val) {
-    if(root == null){
+    if(root == null){ // base case to return null
         return null;
     }
-    if(root.val == val){
+    if(root.val == val){ // base case to return if found
         return root;
     }
-    if(root.val > val){
+    if(root.val > val){ // recursive call, utlizing BST properties, left will be less than, so just check left
         return searchBST(root.left, val);
     }
     else {
-        return searchBST(root.right, val);
+        return searchBST(root.right, val); // recursive call, utilizing BST properties, right will be greater than, so just check right
     }
-    return new TreeNode(null);
+    return new TreeNode(null); // You here, return empty node
+}
+
+// Even more optimized
+
+var searchBST = function(root, val) {
+    if(root == null){ // base case to return null
+        return null;
+    }
+    if(root.val == val){ // base case to return if found
+        return root;
+    }
+    if(root.val > val){ // recursive call, utlizing BST properties, left will be less than, so just check left
+        return searchBST(root.left, val);
+    }
+    else {
+        return searchBST(root.right, val); // recursive call, utilizing BST properties, right will be greater than, so just check right
+    }
+    return null; // Just return null, no need to create a new node
 }
