@@ -18,3 +18,6 @@ var heightChecker = function(heights) { // main function
 var sorting = function(array) { // helper function to sort the array
     return array.slice(0).sort(function(a, b){return a-b}); // needed to splice as the .sort method changes in place, also needed the modify the compare function wihtin sort method to account for numbers
 }
+
+// Thoughts to optimize:
+// Build a sort function: as we sort we count then return the count of times we had to sort
