@@ -21,3 +21,4 @@ var sorting = function(array) { // helper function to sort the array
 
 // Thoughts to optimize:
 // Build a sort function: as we sort we count then return the count of times we had to sort
+// Also on leet code, the run times is varying too much due to the built in method, no garunteed sort way I believe.
