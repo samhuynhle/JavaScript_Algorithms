@@ -5,7 +5,7 @@ function insertionSortList(head) {
     //traverse the input list
     while (head) {
 
-        var prev = before;
+        var prev = before; // We need to keep a marker for the previous node we that we will be working with for each iteration
         
         while (prev.next && prev.next.val < head.val) {
             // if the new list has a current node and the next value is < the head value, we will be adding it to the end of the new list
