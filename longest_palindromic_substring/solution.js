@@ -36,13 +36,13 @@ var longestPalindrome = function(s) {
     // i, j denotes start and edn index of the given string s.
     // We are creating a new instance of an Array that will be able to store ranges i, j
     // Initially, this will all be false.
-    const dp = [...new Array(s.length +1).map(_ => new Array(s.length + 1).fill(false))];
+    const dp = [...new Array(s.length +1)].map(_ => new Array(s.length + 1).fill(false));
     let lps = '';
 
     // This will be the base case for one character, we are getting sure we have this
     for(let i = 0; i < s.length; i++){
         // we make this true as a single character is always a palindrome
-        dp[i][i]=true;
+        dp[i][i] = true;
         lps = s[i];
     }
 
