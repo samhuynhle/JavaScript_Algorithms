@@ -29,22 +29,34 @@ P(i, i+1) = (Si == Si+1)
 */
 
 var longestPalindrome = function(s) {
-    if(s.length <= 1) return s; // this is the base case for strings with only one char
+    if(s.length <= 1) return s; // Edge case
 
     // we need to setup our 2d array for dynaimc programming, this will keep track of the
     // results on wether range(i, j) can become palindrome or not, where
     // i, j denotes start and edn index of the given string s.
+    // We are creating a new instance of an Array that will be able to store ranges i, j
+    // Initially, this will all be false.
     const dp = [...new Array(s.length +1).map(_ => new Array(s.length + 1).fill(false))];
     let lps = '';
 
+    // This will be the base case for one character, we are getting sure we have this
     for(let i = 0; i < s.length; i++){
         dp[i][i]=true;
         lps = s[i];
     }
+
+    // This will be for two characters
     for(let i = s.length - 1; i >= 0; i--) {
-        for(let j = i + 2; j < s.length; j++){
+        for(let j = i + 2; j < s.length; j++) {
             dp[i][j] = dp[i+1][j-1] && s[i] === s[j];
             if(dp[i][j]) lps = lps.length < (j - i + 1) ? s.substring(i, j + 1) : lps;
+        }
+    }
+
+    for(let i = s.length -1; i >= 0; i--) {
+        for(let j = i +2; j < s.length; j++) {
+            dp[i][j] = dp[i+1][j-1] && s[i] == s[j];
+            if(dp[i][j]) lps = lps.length < (j - 1 + 1) ? s.substring(i, j + 1) : lps;
         }
     }
     return lps;
