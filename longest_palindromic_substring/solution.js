@@ -47,14 +47,14 @@ var longestPalindrome = function(s) {
     }
 
     // This will be for two characters
-    for(let i = s.length - 1; i >= 0; i--) {
+    for(let i = 0; i < s.length; i++) {
         for(let j = i + 2; j < s.length; j++) {
 
             // this is checking if the current range is a palindrome
-            dp[i][j] = dp[i+1][j-1] && s[i] === s[j];
+            if(s[i] === s[i + 1]) dp[i][i+1] = true;
 
             // if it is a valid palindrome we compare it to the last lps recorded and lps will be come which ever is longer
-            if(dp[i][j]) lps = lps.length < (j - i + 1) ? s.substring(i, j + 1) : lps;
+            if(dp[i][i+1]) lps = s.substring(i, i + 2);
         }
     }
 
