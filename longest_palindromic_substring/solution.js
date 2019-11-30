@@ -41,6 +41,7 @@ var longestPalindrome = function(s) {
 
     // This will be the base case for one character, we are getting sure we have this
     for(let i = 0; i < s.length; i++){
+        // we make this true as a single character is always a palindrome
         dp[i][i]=true;
         lps = s[i];
     }
@@ -48,14 +49,22 @@ var longestPalindrome = function(s) {
     // This will be for two characters
     for(let i = s.length - 1; i >= 0; i--) {
         for(let j = i + 2; j < s.length; j++) {
+
+            // this is checking if the current range is a palindrome
             dp[i][j] = dp[i+1][j-1] && s[i] === s[j];
+
+            // if it is a valid palindrome we compare it to the last lps recorded and lps will be come which ever is longer
             if(dp[i][j]) lps = lps.length < (j - i + 1) ? s.substring(i, j + 1) : lps;
         }
     }
 
     for(let i = s.length -1; i >= 0; i--) {
         for(let j = i +2; j < s.length; j++) {
+
+            // this is checking if the current range is a palindrome
             dp[i][j] = dp[i+1][j-1] && s[i] == s[j];
+
+            // doing a comparison for lps
             if(dp[i][j]) lps = lps.length < (j - 1 + 1) ? s.substring(i, j + 1) : lps;
         }
     }
