@@ -1,27 +1,30 @@
 function insertionSortList(head) {
-    // Set up a another linked list
+    // Set up a 'dummy' node that will always be in the front of the linked list
     var before = { val: -Number.MAX_VALUE, next: null };
     
-    //traverse the input list
+    // if the inputted linked list is valid this loop will keep going, will traverse each node
     while (head) {
 
-        var prev = before; // We need to keep a marker for the previous node we that we will be working with for each iteration
+        // Here we set a runner at the start of the the new linked list
+        var prev = before;
         
+        // Here we look for the position of where the current node in the inputted linked list should be inserted
+        // For the first instance, prev will not have a .next as it's null
+        // This will break when either prev is null or if prev's next is greater than head
         while (prev.next && prev.next.val < head.val) {
-            // if the new list has a current node and the next value is < the head value, we will be adding it to the end of the new list
             prev = prev.next;
         }
         
-        // set up a new node to store the head's next value, we will be inserting between the current and .net nodes
+        // this is a temp variable we will be using to move the runner within the inputted linked list
         var next = head.next;
 
-        // set the head's next to the current previous node's next
+        // head.next will be assigned to prev.next, since prev.next will be greater than head
         head.next = prev.next;
-
-        // set the current previous next to the current node we are working with
+        
+        // prev.next will be assigned to head now
         prev.next = head;
 
-        // move the head forward within the input list
+        // we move head back to the next node within the linked list
         head = next;
     }
     
