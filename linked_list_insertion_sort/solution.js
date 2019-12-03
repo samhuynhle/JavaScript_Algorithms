@@ -12,7 +12,7 @@ function insertionSortList(head) {
             prev = prev.next;
         }
         
-        // set up a new node to store the head's next value
+        // set up a new node to store the head's next value, we will be inserting between the current and .net nodes
         var next = head.next;
 
         // set the head's next to the current previous node's next
