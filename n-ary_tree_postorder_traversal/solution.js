@@ -10,6 +10,8 @@
  * @return {number[]}
  */
 
+ // Post Order Traversal is DFS that goes node then children (left to right), in tree's left child then right child
+
 var postorder = function(root) { // main function to do the first call
     var ret = []; // this array will store the values of the nodes we visit
     traversal(root, ret); // pass into traversal function the node and also the ret array
