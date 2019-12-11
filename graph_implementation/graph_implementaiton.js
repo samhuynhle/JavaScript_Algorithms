@@ -48,6 +48,9 @@ class Graph {
             console.log(vertex + ' -> ' + conc);
         }
     }
+
+    // Breadth First Search
+    // BFS is an algorith for travesing each immedate neighbor of current node before moving on to their branches
     bfs(startingNode)
     {
         // we can use a set if we do not have the this.noOfVertices readily available
@@ -75,6 +78,9 @@ class Graph {
             }
         }
     }
+
+    // Depth First Search
+    // DFS is an algorithm for traversing as far as possible of each branch before moving onto the next branch
     dfs(startingNode)
     {
         var visted = [];
