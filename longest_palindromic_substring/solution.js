@@ -55,6 +55,7 @@ var longestPalindrome = function(s) {
         if(dp[i][i+1]) lps = s.substring(i, i + 2);
     }
 
+    // This will be fore two and more characters
     for(let i = s.length - 1; i >= 0; i--) {
         for(let j = i + 2; j < s.length; j++) {
 
