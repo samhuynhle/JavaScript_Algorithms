@@ -7,7 +7,7 @@ const peakIndexInMountainArray = A => { // Take in array
     return lowerBound(A, prop);
 };
 
-const lowerBound = (arr, prop) => {
+const lowerBound = (arr, prop) => { // we are using the lower bound helper function as we move through the array left to right checking our conditional 'prop'
     var left = 0; // set left index
     var right = arr.length - 1; // set right index
     while (left <= right){ // while loop condition: while left is less than or equal to right continue
@@ -22,17 +22,17 @@ const lowerBound = (arr, prop) => {
     return left; // we return the left value, which is where the peak of the mountain is
 }
 
-const upperBound = (arr, prop) => {
-    var left = 0;
-    var right = arr.length - 1;
-    while(left <= right){
-        var mid = (left + (right - left)) /2;
-        if(prop(mid)){
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return right;
-}
+// const upperBound = (arr, prop) => {
+//     var left = 0;
+//     var right = arr.length - 1;
+//     while(left <= right){
+//         var mid = (left + (right - left)) /2;
+//         if(prop(mid)){
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+//     return right;
+// }
 
