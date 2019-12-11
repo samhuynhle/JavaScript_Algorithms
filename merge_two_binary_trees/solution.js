@@ -5,7 +5,7 @@ function TreeNode(val) {
     this.left = this.right = null;
 }
 
-var mergeTrees = function(t1, t2) {
+var mergeTrees = function(t1, t2) { // we will be merging t2 into t1 and return t1
     if (!t1 && !t2) return null; // Base Case --> If both nodes are null return null
     if (!t1 || !t2) return t1 || t2; // Base Case 2 --> If one of the nodes are null, return the not null
     
