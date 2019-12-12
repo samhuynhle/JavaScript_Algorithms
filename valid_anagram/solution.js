@@ -3,24 +3,24 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-    if(s.length != t.length){
+var isAnagram = function(s, t) { // This function takes two strings
+    if(s.length != t.length){ // Base case, if they're not equal in length they are not valid anagrams
         return false;
     }
-    let lettermap = new Map();
-    for(let i of s){
+    let lettermap = new Map(); // we are going to store letters as keys and counts as values
+    for(let i of s){ // storing and counting
         if(lettermap.has(i)){
             lettermap.set(i, lettermap.get(i) + 1)
         } else {
             lettermap.set(i, 1);
         }
     }
-    for(let i of t){
-        if(!lettermap.has(i)){
+    for(let i of t){ // checking the second and comparing to our map
+        if(!lettermap.has(i)){ // if map doesn't have return false
             return false;
         } else {
             lettermap.set(i, lettermap.get(i) - 1);
-            if(lettermap.get(i) < 0) {
+            if(lettermap.get(i) < 0) { // anything under 0 will return false
                return false;
            }
         }
