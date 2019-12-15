@@ -1,7 +1,9 @@
-/**
+/*
  * @param {number[]} A
  * @return {number[]}
  */
+
+// firstly we square all the values in the array then we use quicksort
 var sortedSquares = function(A) {
     A = square(A); // helper function to square all the values in place
     A = quickSort(A, 0, A.length -1); // helper function to sort the array, we are using quick sort method
@@ -17,7 +19,7 @@ function square(array){ // function to iterate through each object and assign th
 }
 
 function quickSort(array, left, right){ // takes in an array, a left index, and right index value
-    var index; // initialize an index variable where we will store the partitioning
+    var index; // initialize an index variable where we will store the partitioning index
     if(array.length > 1){ // base case for quickSort recursion, this will stop when the array length is down to 0
         index = partition(array, left, right); // the index will store the value we will use for further sorting
         
@@ -37,20 +39,20 @@ function partition(array, left, right){
     var i = left;
     var j = right;
     
-    while (i <= j){
-        while (array[i] < pivot){
+    while (i <= j){ // while left value is less than or equal to the right value we will keep swapping
+        while (array[i] < pivot){ // if the numbers are in the correct position, move the markers either right or left
             i++;
         }
         while(array[j] > pivot){
             j--;
         }
-        if(i <= j){
+        if(i <= j){ // once the markers find a number to swap, swap them, and then increment
             swap(array, i, j);
             i++;
             j--;
         }
     }
-    return i; // return the place we last swapped
+    return i; // return the place we last swapped, this will be the index we partitioned
 }
 
 function swap(array, leftIndex, rightIndex){ // sawp function
