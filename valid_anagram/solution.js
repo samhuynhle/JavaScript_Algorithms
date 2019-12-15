@@ -3,6 +3,7 @@
  * @param {string} t
  * @return {boolean}
  */
+<<<<<<< HEAD
 
 
 var isAnagram = function(s, t) { // this function takes two strings to check if they are valid anagrams of each other
@@ -12,17 +13,35 @@ var isAnagram = function(s, t) { // this function takes two strings to check if 
     let lettermap = new Map(); // we are using a hashmap object
     for(let i of s){ // store the letters as keys for the first string and get counts of how often those words appear
         if(lettermap.has(i)){ // if the hashmap has it just increment 
+=======
+var isAnagram = function(s, t) { // This function takes two strings
+    if(s.length != t.length){ // Base case, if they're not equal in length they are not valid anagrams
+        return false;
+    }
+    let lettermap = new Map(); // we are going to store letters as keys and counts as values
+    for(let i of s){ // storing and counting
+        if(lettermap.has(i)){
+>>>>>>> 01fa9acbccfb22e7ba32400d49e75532be1bf861
             lettermap.set(i, lettermap.get(i) + 1)
         } else { // other wise set it up with value of one
             lettermap.set(i, 1);
         }
     }
+<<<<<<< HEAD
     for(let i of t){ // check the second string
         if(!lettermap.has(i)){ // if there's a char in this string not in our original, return false
             return false;
         } else {
             lettermap.set(i, lettermap.get(i) - 1);
             if(lettermap.get(i) < 0) { // if we reach a negative number, that means there was more count of such char
+=======
+    for(let i of t){ // checking the second and comparing to our map
+        if(!lettermap.has(i)){ // if map doesn't have return false
+            return false;
+        } else {
+            lettermap.set(i, lettermap.get(i) - 1);
+            if(lettermap.get(i) < 0) { // anything under 0 will return false
+>>>>>>> 01fa9acbccfb22e7ba32400d49e75532be1bf861
                return false;
            }
         }
