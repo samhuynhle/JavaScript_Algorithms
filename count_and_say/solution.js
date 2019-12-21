@@ -26,10 +26,8 @@ var countAndSay = function(n) {
     let result = '';
     let lastIndex = -1;
 
-    // For every recursive call we are reviewing the previous characters, to build a new result
+    // For every recursive call we are reviewing the previous characters, to build the new result
     for(let i = 0; i < prev.length; i++){
-        
-        // if the current character we are at doesn't equal the next, we add in front of it the value that is i - lastIndex then the current value.
         if(prev[i] !== prev[i+1]){
             result += (i - lastIndex) + prev[i];
             lastIndex = i;
