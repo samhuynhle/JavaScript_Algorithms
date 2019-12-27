@@ -18,6 +18,15 @@ function square(array){ // function to iterate through each object and assign th
     return array;
 }
 
+// quickSort() is the main sorting function, with partition() as the helper function.
+// quickSort() takes in an array, an integer designating left pointer, and an integer designating a right pointer
+// we establish a variable to which we will be using as the partition, breaking up our array into two parts
+// within the partition() function, we establish a pivot, in which we sort the values around
+// on the left side of the pivot are all numbers less than the selected pivot, and on the right
+// side are the the numbers greater than the pivot number
+// parition sort is done on the values within the left and right pointer ranges passed into it
+// partition sort returns the marker where the quickSort function splits the array range
+
 function quickSort(array, left, right){ // takes in an array, a left index, and right index value
     var index; // initialize an index variable where we will store the partitioning index
     if(array.length > 1){ // base case for quickSort recursion, this will stop when the array length is down to 0
