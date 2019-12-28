@@ -14,7 +14,7 @@ var numJewelsInStones = function(J, S) {
     return count;
 };
 
-// Optimized with set
+// Optimized solution using set's to be used as look up, quicker than array.
 
 var numJewelsInStones = function(J, S) { // Takes in two strings J and S, which we will review their characters
 
