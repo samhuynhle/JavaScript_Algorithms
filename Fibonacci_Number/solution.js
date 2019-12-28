@@ -15,3 +15,24 @@ var fib = function(N) {
     }
     return fib(N - 1) + fib(N - 2);
 };
+
+// fibonacci using dynamic programming
+
+var fib = function(N) {
+    var mem = new Array(N).fill(0);
+    return memFib(N, mem)
+};
+
+var memFib = function(n, mem) {
+    console.log(mem);
+    console.log(n);
+    if (!mem[n]){
+        if (n < 2){
+            var result = n;
+        } else {
+            var result = memFib(n - 2, mem) + memFib(n - 1, mem)
+        }
+        mem[n] = result;
+    }
+    return mem[n]
+}
