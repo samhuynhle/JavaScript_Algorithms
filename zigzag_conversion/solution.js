@@ -1,8 +1,8 @@
 /*
- * @param {string} s
- * @param {number} numRows
- * @return {string}
- */
+@param {string} s
+@param {number} numRows
+@return {string}
+*/
 var convert = function(s, numRows) {
     if(numRows === 1) { // if rows is 1, then there's no zigzagging
       return s;
