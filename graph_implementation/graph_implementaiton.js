@@ -50,7 +50,7 @@ class Graph {
     }
 
     // Breadth First Search
-    // BFS is an algorith for travesing each immedate neighbor of current node before moving on to their branches
+    // BFS is an algorith for travesing each immedate neighbor of current node before moving on to their children
     bfs(startingNode)
     {
         // we can use a set if we do not have the this.noOfVertices readily available
@@ -66,7 +66,6 @@ class Graph {
         while(!q.IsEmpty())
         {
             var P = q.deque();
-            console.log(P);
             var get_adjacents = this.AdjList.get(P);
             for(var adjacent in get_adjacents)
             {
@@ -80,7 +79,7 @@ class Graph {
     }
 
     // Depth First Search
-    // DFS is an algorithm for traversing as far as possible of each branch before moving onto the next branch
+    // DFS is an algorithm for traversing as far as possible of each branch before moving onto the next branch (left to right);
     dfs(startingNode)
     {
         var visted = [];
@@ -93,7 +92,6 @@ class Graph {
     DFS_helper(vertex, visited)
     {
         visited[vertex] = true;
-        console.log(vertex);
         var get_adjacents = this.AdjList.get(vertex);
         for(var adjacent in get_adjacents)
         {
