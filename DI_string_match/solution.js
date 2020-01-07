@@ -24,7 +24,8 @@ var diStringMatch = function(S) {
 // This solution is more optimized as we don't use a second array, we work with the value of I starting at 0 and then the
 // value of D starting at the maximum we can get. We close in as we push to the returning array.
 
-// optimized solutuon uses two pointer method to maintain position and placement of the values. I and D have their current value and our lopp keeps track of ghe position
+// optimized solutuon uses two pointer method to maintain position and placement of the values.
+// I and D have their current value and our lopp keeps track of ghe position.
 
 var diStringMatch = function(S) {
     let perm = [];
@@ -41,6 +42,7 @@ var diStringMatch = function(S) {
         }
     }
     
+    // This is the last value available
     perm.push(I);
     return perm;
 };
