@@ -16,9 +16,11 @@ var fib = function(N) {
     return fib(N - 1) + fib(N - 2);
 };
 
-// fibonacci using dynamic programming
+// fibonacci using dynamic programming, we are storing the values in an array during each recurse.
 
-var fib = function(N) {
+var fib2 = function(N) {
+
+    // We need an array to store the values, corresponding to the indexes
     var mem = new Array(N).fill(0);
     return memFib(N, mem)
 };
