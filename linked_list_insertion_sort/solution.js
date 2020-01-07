@@ -30,3 +30,21 @@ function insertionSortList(head) {
     
     return before.next;
 }
+
+// No comments for easy reading
+function insertionSortList2(head) {
+    var before = { val: -Number.MAX_VALUE, next: null};
+
+    while(head) {
+        var prev = before;
+        while (prev.next && prev.next.val < head.val){
+            prev = prev.next;
+        }
+        var next = head.next;
+        head.next = prev.next;
+        prev.next = head;
+        head = next;
+    }
+
+    return before.next;
+}
