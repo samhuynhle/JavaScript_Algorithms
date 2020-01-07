@@ -1,7 +1,6 @@
 // Will need to check the characters of string J and S
 // If they match, we will need to increase the counter
 
-// O(N^2) Solution
 var numJewelsInStones = function(J, S) {
     var count = 0;
     for(var jchar of J){
