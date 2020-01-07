@@ -2,6 +2,7 @@
  * Initialize your data structure here.
  */
 var MyQueue = function() {
+    // we are using two stacks one for pushing and one for popping, to mimic a queue (FIFO).
     this.pushStack = new Stack();
     this.popStack = new Stack();
 };
