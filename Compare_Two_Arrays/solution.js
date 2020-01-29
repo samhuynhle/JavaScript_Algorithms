@@ -8,10 +8,14 @@ const compareTwoArrays = (array1, array2) => {
     }
 
     for(var j of array2){
-        if(hashMap.contains(j)){
+        if(hashMap[j]){
             return true;
         }
     }
 
     return false;
+}
+
+const CompareTwoArrays = (array1, array2) => {
+    return array1.some(item => array2.includes(item));
 }
