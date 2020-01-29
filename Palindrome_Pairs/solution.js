@@ -19,3 +19,5 @@ var palindromePair1 = (words) => {
 var reverseString = (string) => { // utilize split(), reverse(), and join() methods
     return string.split("").reverse().join("");
 }
+
+// Approach 2: Hashing

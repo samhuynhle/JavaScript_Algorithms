@@ -13,3 +13,6 @@ Approach 1: Brute Force
         Time Complexity: O(n^2 * k)
             Each word is visited expotentially and each character is visited as well.
         Space Complexity: O(n*k+n^2)
+
+
+Approach 2: Hashing
