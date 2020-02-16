@@ -1,11 +1,9 @@
 /*
- * @param {string} s
- * @return {string}
- */
+@param {string} s
+@return {string}
 
-/*
 Solution - Brute Force Approach
-1. Get all possible starting and edning positions for a substrin
+1. Get all possible starting and ending positions for a substring
 2. Verify if each are palindrome
 3. retain longest palindrome
 

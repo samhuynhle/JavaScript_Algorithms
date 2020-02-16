@@ -16,21 +16,32 @@
  // next character of the previous instance to the currently scanned character.
  // Then we compare the current length to the max length before chaning the current NCRS or changing current length
 
- var lengthOfLongestSubstring = function(s) {
-    const length = s.length; // Store the length of the string passed in
-    let windowStart = 0; // windowStart is the beginning of each substring
-    let current = 0; // current is the current letter we are at
-    let longest = 0; // longest is the longest substring we have
-    let found = new Map(); // we are using JavaScript's hash map to store the characters and the index they are at
+var lengthOfLongestSubstring = function(s) {
 
+    /*
+    1) store the length of the string we passed in, establish our sliding doors, establish longest substring length
+    2) utlize JavaScripts Map to help us identify if we are in a valid substring (aka no repetitions)
+    */
+    const length = s.length;
+    let windowStart = 0;
+    let current = 0;
+    let longest = 0;
+    let found = new Map();
+
+    /*
+    We get each character we are at, loop until we are at the end of the string.
+    For the windows, if we find a repetition, we move the left window to where the repetition was found
+    If the character was not in teh map, we store it and it's position in the string
+    Then we compare current max to last max
+    */
     while (current < length) {
-        const c = s[current]; // set c to the current character we are at
-        if (found.get(c) >= windowStart ) { // if the character is in the map and it's position is greater than where our window is
-            windowStart = found.get(c) + 1; // then we move the window to that index plus one, we need to move the window as there will be a duplicate
+        const c = s[current];
+        if (found.get(c) >= windowStart ) { 
+            windowStart = found.get(c) + 1;
         }
-        found.set(c, current); // If the character is not in the map, then we add it along with it's index
-        longest = Math.max(longest, (current - windowStart) + 1); // then we take the greater of the two, the past longest or the difference between current and start (plus one since we index at 0)
-        current++; // we advance our current runner until the end
+        found.set(c, current);
+        longest = Math.max(longest, (current - windowStart) + 1);
+        current++; 
     }
-    return longest; // we then return the longest
+    return longest;
 };

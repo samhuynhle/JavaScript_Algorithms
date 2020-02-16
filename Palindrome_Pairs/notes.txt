@@ -1,0 +1,18 @@
+Approach 1: Brute Force
+
+    Note: This is for reference and you should understand how the brute force method works.
+
+    Use two nested loops, each loop going through each index in the array.
+    We need to check if each pair forms a palindrome or not.
+    Simple way to check: store the pairing and comparie it with it's reverse.
+    If equal, store their pairs indexes, if not move long.
+    Important edge case is where words at i and j are equal (they need to be distinct).
+
+    Complexity Analysis:
+        n is number of words, k is length of longest words.
+        Time Complexity: O(n^2 * k)
+            Each word is visited expotentially and each character is visited as well.
+        Space Complexity: O(n*k+n^2)
+
+
+Approach 2: Hashing

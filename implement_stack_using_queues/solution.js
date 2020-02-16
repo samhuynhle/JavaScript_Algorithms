@@ -1,15 +1,19 @@
 /*
- * Initialize your data structure here.
- */
+Initialize your data structure here.
+*/
+
+// We use one queue for our Stack
 var MyStack = function() {
     this.queue = new Queue();
 };
 
-/**
- * Push element x onto stack. 
- * @param {number} x
- * @return {void}
- */
+/*
+Push element x onto stack. 
+@param {number} x
+@return {void}
+*/
+
+// With the push method we need to enqueue, then rotate the queue till the value we just pushed is first in line
 MyStack.prototype.push = function(x) {
     let rotations = this.queue.size();
     this.queue.enqueue(x);
@@ -20,30 +24,31 @@ MyStack.prototype.push = function(x) {
     }
 };
 
-/**
- * Removes the element on top of the stack and returns that element.
- * @return {number}
- */
+/*
+Removes the element on top of the stack and returns that element.
+@return {number}
+*/
 MyStack.prototype.pop = function() {
     return this.queue.dequeue();
 };
 
-/**
- * Get the top element.
- * @return {number}
- */
+/*
+Get the top element.
+@return {number}
+*/
 MyStack.prototype.top = function() {
     return this.queue.peek();
 };
 
-/**
- * Returns whether the stack is empty.
- * @return {boolean}
- */
+/*
+Returns whether the stack is empty.
+@return {boolean}
+*/
 MyStack.prototype.empty = function() {
     return this.queue.isEmpty();
 };
 
+// Queue implementation (FIFO)
 class Queue {
     constructor() {
         this.storage = {};

@@ -1,14 +1,23 @@
 /*
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
+@param {ListNode} l1
+@param {ListNode} l2
+@return {ListNode}
+*/
 
 // Definition of linked list
 function ListNode(val) {
     this.val = val;
     this.next = null;
 }
+
+/*
+Add two numbers: Core concepts; we have two integers represented at linked lists.
+Single digits in first node and increases as goes.
+
+We'll traverse the lists up until the end of the lists, then return a new list resulting from the sum.
+
+Note for carried numbers for when a sum of two digits is greater than 10.
+*/
 
 var addTwoNumbers = function(l1, l2) {
     let dummyHead = new ListNode(0) 

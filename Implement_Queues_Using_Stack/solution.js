@@ -2,6 +2,7 @@
  * Initialize your data structure here.
  */
 var MyQueue = function() {
+    // we are using two stacks one for pushing and one for popping, to mimic a queue (FIFO).
     this.pushStack = new Stack();
     this.popStack = new Stack();
 };
@@ -15,10 +16,10 @@ MyQueue.prototype.push = function(x) {
     this.pushStack.push(x);
 };
 
-/**
- * Removes the element from in front of queue and returns that element.
- * @return {number}
- */
+/*
+ Removes the element from in front of queue and returns that element.
+@return {number}
+*/
 MyQueue.prototype.pop = function() {
     if(this.popStack.empty()){
         while(!this.pushStack.empty()){
@@ -28,10 +29,10 @@ MyQueue.prototype.pop = function() {
     return this.popStack.pop();
 };
 
-/**
- * Get the front element.
- * @return {number}
- */
+/*
+Get the front element.
+@return {number}
+*/
 MyQueue.prototype.peek = function() {
     if(this.popStack.empty()){
         while(!this.pushStack.empty()){
@@ -41,14 +42,15 @@ MyQueue.prototype.peek = function() {
     return this.popStack.peek();
 };
 
-/**
- * Returns whether the queue is empty.
- * @return {boolean}
- */
+/*
+Returns whether the queue is empty.
+@return {boolean}
+*/
 MyQueue.prototype.empty = function() {
     return this.popStack.empty() && this.pushStack.empty();
 };
 
+// Stack implementation below (LIFO)
 class Stack{
     constructor() {
         this.storage = {};

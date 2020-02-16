@@ -4,14 +4,9 @@ function Node(val,children) {
     this.val = val;
     this.children = children;
 };
-*/
 
-/*
 @param {Node} root
 @return {number}
-*/
-
-/*
 
 main function is maxDepth(), which takes in a node that has a list of children(children is currently stored in an array)
 depthSearch() is a function that takes in the parent node's depth and the current node
@@ -23,6 +18,7 @@ We then call depthSearch again for each of those children.
 This function returns the maximum of each path. This is very similar to pre-order traversal(DFS) algorithm.
 
 */
+
 var maxDepth = function(root) {
     return root ? depthSearch(0, root) : 0;
 };

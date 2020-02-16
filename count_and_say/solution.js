@@ -15,7 +15,7 @@ This algorithm, we are working with strings and reading it as we progress.
 
 var countAndSay = function(n) {
 
-    // Base case, when n = 1, we return '1'
+    // Base case, when n = 1, we return '1', we build from this
     if(n == 1){
         return '1';
     }

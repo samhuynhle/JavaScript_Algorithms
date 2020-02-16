@@ -4,19 +4,19 @@
  */
 
 // Unpptimized solution, we are using builting sort function in Array class for javascript.
-var heightChecker = function(heights) { // main function
-    var errors = 0; // establish error counter
-    var sorted = sorting(heights); // creating a new array that is the original array sorted
-    for(let i = 0; i < heights.length; i++){ // loop through both arrays and compare
-        if(sorted[i] != heights[i]){ // if there are differences from the original to the sorted then that's an error and we add it
+var heightChecker = function(heights) {
+    var errors = 0;
+    var sorted = sorting(heights);
+    for(let i = 0; i < heights.length; i++){
+        if(sorted[i] != heights[i]){
             errors++;
         }
     }
-    return errors; // return number of errors
+    return errors;
 };
 
-var sorting = function(array) { // helper function to sort the array
-    return array.slice(0).sort(function(a, b){return a-b}); // needed to splice as the .sort method changes in place, also needed the modify the compare function wihtin sort method to account for numbers. The splice creates new memory space for a new array.
+var sorting = function(array) {
+    return array.slice(0).sort(function(a, b){return a-b});
 }
 
 // Thoughts to optimize:
