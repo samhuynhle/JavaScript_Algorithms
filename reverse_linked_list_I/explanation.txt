@@ -1,0 +1,19 @@
+Reversing a Linked List(Iteratively with while loop)
+
+This is the most intuitive approach, using a while loop to traverse the linked list.
+
+Have a curr runner run till the end of the linked list --> while(curr != null).
+
+At each step we do some swapping to get the pointers to point backwards towards a prev runner.
+(We need to establish a prev runner as null for the first step)
+
+The order goes like this:
+    1. We store the current runner's next in temp
+    2. We point the current runner's next to the previous node (or null)
+    3. We store the current node as prev (since when we take a step forward the current will be the previous)
+    4. We advance our current to the node stored in temp
+
+At the end we return the previous since it'll now be the head of the reversed linked list.
+
+Time complexity is O(N), we visit each node.
+Space complexity is O(N), we only use the existing size of the linked lists.
