@@ -1,0 +1,26 @@
+Swap Nodes in Pairs
+
+Recursive Approach:
+
+** We are asked to swap every two adjacent nodes **
+
+We need to reach the end of the linked list in steps of two.
+
+And while we back track from each call stack, we can swap those nodes.
+
+Each function call we need to take two nodes that would be swapped and the
+remaining nodes are passed to the next recursive call. 
+
+The recusion will return the swapped remaining list of nodes, so at each function
+we will swap the two current nodes and attach the remaining.
+
+1. Start the recursion with the head
+2. Each call we swap a pair of nodes (first_node and second_node)
+3. The next call is made by calling the function with the first of the pairs.
+   Within this call, we swap the next two nodes and make the next call if there are
+   still nodes left.
+4. Once we get the remaining list swapped (reaching the end), we swap the first and second.
+   Then return the second node, since it's teh new head (or first of each pair).
+
+Time complexity: O(N), N is the size of the linked list. Each item will be visited for the sawp.
+Space complexity: O(N) stack space utlized for recursion, each call for each node.
