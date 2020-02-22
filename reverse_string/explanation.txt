@@ -1,0 +1,18 @@
+Reverse String:
+
+The problem is not difficult, but can be used to really
+teach both iteration and recursion.
+
+Trick is to modify in space (mutate the string) for
+a O(1) space.
+
+Using a left and right pointer, we can treat the
+string as an array and swap the values at each step.
+
+After we swap at each step, we converge the two pointers.
+
+We stop the recursion or while loop when the left pointer
+is at a point that it is equal to or greater than the
+right pointer.
+
+The run time is O(N). We visit each item at least once.
