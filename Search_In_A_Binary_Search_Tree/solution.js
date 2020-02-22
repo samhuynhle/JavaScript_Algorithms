@@ -1,70 +1,57 @@
 /*
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
+
+Definition for a binary tree node.
+    function TreeNode(val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+*/
+
 /*
- * @param {TreeNode} root
- * @param {number} val
- * @return {TreeNode}
- */
+    @param {TreeNode} root
+    @param {number} val
+    @return {TreeNode}
+*/
 
-// Not optimized BFS (Graph Approach), not optimized for BST's
-var searchBST = function(root, val) {
-    var stack = [];
-    var set = new Set();
-    
-    stack.push(root);
-    
-    while(stack.length > 0){
-        var P = stack.pop();
-        if(P.val == val){
-            return P;
-        }
-        if(P.left && !set.has(P.left)){
-            stack.push(P.left);
-        }
-        if(P.right && !set.has(P.right)){
-            stack.push(P.right);
-        }
-    }
-    return null;
-};
+// Not optimized BFS (Graph Approach), not optimized for Binary Search Tree's
+// This is regular BFS where we all all the nodes into our search
+// For BST's we can use binary search methodology (go left or right on condition of current val and val)
+var searchBST_BFS = (root, val) => {
+    var queue = []
+    var flagger = new Set()
 
-// Optimized solution for BST's
+    queue.push(root);
 
-var searchBST = function(root, val) {
-    if(root == null){ // base case to return null
-        return null;
+    while(queue.length > 0){
+        var current = queue.pop();
+        if(current.val == val) {
+            return current;
+        }
+        if(current.left && !flagger.has(current.left)){
+            queue.push(current.left)
+        }
+        if(current.right && !flagger.has(current.right)){
+            queue.push(current.right)
+        }
     }
-    if(root.val == val){ // base case to return if found
-        return root;
-    }
-    if(root.val > val){ // recursive call, utlizing BST properties, left will be less than, so just check left
-        return searchBST(root.left, val);
-    }
-    else {
-        return searchBST(root.right, val); // recursive call, utilizing BST properties, right will be greater than, so just check right
-    }
-    return new TreeNode(null); // You here, return empty node
+
+    return null
 }
 
-// Even more optimized
+// Optimized solution for BST's using DFS via recursion's call stack
 
 var searchBST = function(root, val) {
-    if(root == null){ // base case to return null
+    if(root == null){
         return null;
     }
-    if(root.val == val){ // base case to return if found
+    if(root.val == val){
         return root;
     }
-    if(root.val > val){ // recursive call, utlizing BST properties, left will be less than, so just check left
+    if(root.val > val){
         return searchBST(root.left, val);
     }
     else {
-        return searchBST(root.right, val); // recursive call, utilizing BST properties, right will be greater than, so just check right
+        return searchBST(root.right, val);
     }
-    return null; // Just return null, no need to create a new node
+    return null;
 }
