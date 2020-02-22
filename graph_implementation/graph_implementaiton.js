@@ -12,7 +12,7 @@ This is done in JavaScript ES6 syntax
 */
 
 class Graph {
-    // Constructor Method
+    // Constructor Method --> needed to initialize the class into an object (an instance of the class). 
     constructor(noOfVertices){
         // This variable stores an integer for the number of vertices in the graph
         this.noOfVertices = noOfVertices;
