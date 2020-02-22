@@ -1,14 +1,18 @@
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
+/*
+
+Definition for singly-linked list.
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+*/
+
+/*
+    @param {ListNode} head
+    @return {ListNode}
+*/
+
+// Iterative Approach below using while loop
 var reverseList = function(head) {
     if(head == null || head.next == null) {
         return head;
@@ -27,3 +31,15 @@ var reverseList = function(head) {
     
     return prev
 };
+
+// Recursive Approach below
+var reverseListR = (head) => {
+    if (head == null || head.next == null) {
+        return head;
+    }
+
+    var p = reverseListR(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p
+}

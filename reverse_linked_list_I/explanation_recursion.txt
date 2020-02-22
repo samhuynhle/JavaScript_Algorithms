@@ -1,0 +1,15 @@
+Reverse Linked List (Recursion)
+
+The idea is to work backwards.
+
+For every node we are at, we need to assume that the rest of linked lists (nodes at k +)
+are already reversed and we need to reverse the front parts.
+
+We need to get our current's next to point to the current.
+This is with node.next.next = node
+
+Then we point the current's .next to null (if we're at the very first we stop)
+
+Then we move backwards once more step and do the same.
+
+We return p (the new head of the reversed linked list)
